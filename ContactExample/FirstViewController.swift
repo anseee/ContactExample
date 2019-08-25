@@ -16,11 +16,12 @@ class FirstViewController: UIViewController {
     @IBAction func ContactViewMoveAction(_ sender: Any) {
         let viewController: ViewController = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         
-        viewController.complation = {(contact: [String:String]) -> () in
-            self.nameLabel.text = contact["name"]
-            self.phoneNumberLabel.text = contact["phoneNumber"]
+        viewController.complation = {(contact: Contact) -> () in
+            self.nameLabel.text = contact.name
+            self.phoneNumberLabel.text = contact.phoneNumber
         }
 
+        // TODO : change your navigation Controller
         navigationController?.pushViewController(viewController, animated: true)
     }
 
